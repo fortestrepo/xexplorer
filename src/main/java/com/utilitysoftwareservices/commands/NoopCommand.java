@@ -1,7 +1,8 @@
 package com.utilitysoftwareservices.commands;
 
 /**
- * NoopCommand
+ * No op Command, this command does nothing and return {@link NoneResult}
+ * 
  */
 public class NoopCommand implements Command {
 

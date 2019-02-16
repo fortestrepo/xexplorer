@@ -1,7 +1,8 @@
 package com.utilitysoftwareservices.commands;
 
 /**
- * NoneResult
+ * One type of {@link CommandResult} which has nothing to report
+ * 
  */
 public final class NoneResult extends CommandResult {
 

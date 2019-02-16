@@ -42,15 +42,15 @@ public final class CommandParser {
      * 
      * Valid commands:
      * <ul>
-     *  <li>@{PlaceCommand}</li>
-     *  <li>@{BlockCommand}</li>
-     *  <li>@{ReportCommand}</li>
-     *  <li>@{ExploreCommand}</li>
+     *  <li>{@link PlaceCommand}</li>
+     *  <li>{@link BlockCommand}</li>
+     *  <li>{@link ReportCommand}</li>
+     *  <li>{@link ExplorerCommand}</li>
      * </ul>
-     * Any invalid texts are resolved to @{NoopCommand}.
+     * Any invalid texts are resolved to {@link NoopCommand}.
      * 
      * @param commandLine command text
-     * @return according @{Command}
+     * @return according {@link Command}
      */
     public Command parse(String commandLine) {
         if (commandLine != null) {

@@ -13,13 +13,13 @@ import com.utilitysoftwareservices.commands.ReportCommand;
 import org.junit.Test;
 
 /**
- * Unit tests for @{CommandParser}
+ * Unit tests for {@link CommandParser}
  * 
  */
 public class CommandParserTest {
 
     /**
-     * Positive case of parsing @{PlaceCommand}.
+     * Positive case of parsing {@link PlaceCommand}.
      * 
      * Place command must follow by a correct position point.
      * 
@@ -35,9 +35,9 @@ public class CommandParserTest {
     }
 
     /**
-     * Negative case of parsing @{PlaceCommand}.
+     * Negative case of parsing {@link PlaceCommand}.
      * 
-     * Return @{NoopCommand} when there's no position part in the command.
+     * Return {@link NoopCommand} when there's no position part in the command.
      * 
      */
     @Test
@@ -49,9 +49,9 @@ public class CommandParserTest {
     }
 
     /**
-     * Negative case of parsing @{PlaceCommand}.
+     * Negative case of parsing {@link PlaceCommand}.
      * 
-     * Return @{NoopCommand} when place command is NOT followed by valid position point.
+     * Return {@link NoopCommand} when place command is NOT followed by valid position point.
      * 
      */
     @Test
@@ -63,7 +63,7 @@ public class CommandParserTest {
     }
 
     /**
-     * Positive case of parsing @{BlockCommand}.
+     * Positive case of parsing {@link BlockCommand}.
      * 
      * Block command must follow by a correct position point.
      * 
@@ -79,9 +79,9 @@ public class CommandParserTest {
     }
 
     /**
-     * Negative case of parsing @{BlockCommand}.
+     * Negative case of parsing {@link BlockCommand}.
      * 
-     * Return @{NoopCommand} when there's no position part in the command.
+     * Return {@link NoopCommand} when there's no position part in the command.
      * 
      */
     @Test
@@ -93,9 +93,9 @@ public class CommandParserTest {
     }
 
     /**
-     * Negative case of parsing @{BlockCommand}.
+     * Negative case of parsing {@link BlockCommand}.
      * 
-     * Return @{NoopCommand} when place command is NOT followed by valid position point.
+     * Return {@link NoopCommand} when place command is NOT followed by valid position point.
      * 
      */
     @Test
@@ -107,7 +107,7 @@ public class CommandParserTest {
     }
 
     /**
-     * Positive case of parsing @{ExploreCommand}.
+     * Positive case of parsing {@link ExploreCommand}.
      * 
      * Explorer command must follow by a correct position point.
      * 
@@ -123,9 +123,9 @@ public class CommandParserTest {
     }
 
     /**
-     * Negative case of parsing @{BlockCommand}.
+     * Negative case of parsing {@link BlockCommand}.
      * 
-     * Return @{NoopCommand} when there's no position part in the command.
+     * Return {@link NoopCommand} when there's no position part in the command.
      * 
      */
     @Test
@@ -137,9 +137,9 @@ public class CommandParserTest {
     }
 
     /**
-     * Negative case of parsing @{ExploreCommand}.
+     * Negative case of parsing {@link ExploreCommand}.
      * 
-     * Return @{NoopCommand} when place command is NOT followed by valid position point.
+     * Return {@link NoopCommand} when place command is NOT followed by valid position point.
      * 
      */
     @Test
@@ -151,7 +151,7 @@ public class CommandParserTest {
     }
 
     /**
-     * Positive case of parsing @{ReportCommand}.
+     * Positive case of parsing {@link ReportCommand}.
      * 
      * Report command must follow by a correct position point.
      * 
@@ -165,7 +165,7 @@ public class CommandParserTest {
     }
 
     /**
-     * test the invalid command parse to @{NoopCommand}
+     * test the invalid command parse to {@link NoopCommand}
      * 
      */
     @Test
