@@ -30,7 +30,7 @@ public final class CommandParser {
             } else if (commandLine.startsWith(BLOCK_COMMAND)) {
                 Point position = parsePosition(positionPart(commandLine));
                 if (position != null) {
-                    return new BlockCommand(position);
+                    return new BlockCommand(getController(), position);
                 }
             } else if (commandLine.startsWith(REPORT_COMMAND)) {
                 return new ReportCommand(getController());

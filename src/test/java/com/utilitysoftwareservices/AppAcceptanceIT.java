@@ -43,4 +43,57 @@ public class AppAcceptanceIT {
             "E:(0,0) B: ",
             result.toString());
     }
+
+    /**
+     * test the explorer and two blocks are placed in correct positions
+     * 
+     * Example b
+     * PLACE 0,0
+     * BLOCK 0,1
+     * BLOCK 0,2
+     * REPORT
+     * 
+     * Expected output:
+     * E:(0,0) B: (0,1) (0,2)
+     * 
+     */
+    @Test
+    public void reportAfterExplorerAndTwoBlockersPlaced() {
+        app.execute("PLACE 0,0");
+        app.execute("BLOCK 0,1");
+        app.execute("BLOCK 0,2");
+        CommandResult result = app.execute("REPORT");
+
+
+        assertEquals("should report the explorere position and blocker positions correctly.", 
+            "E:(0,0) B: (0,1) (0,2)",
+            result.toString());
+    }
+
+    /**
+     * test place the explorer in second time remove all previous items.
+     * 
+     * Example c
+     * PLACE 0,0
+     * BLOCK 0,1
+     * BLOCK 0,2
+     * PLACE 0,1
+     * REPORT
+     * 
+     * Expected output:
+     * E:(0,1) B:
+     * 
+     */
+    @Test
+    public void secordPlaceRemoveAllPreviousItems() {
+        app.execute("PLACE 0,0");
+        app.execute("BLOCK 0,1");
+        app.execute("BLOCK 0,2");
+        app.execute("PLACE 0,1");
+        CommandResult result = app.execute("REPORT");
+
+        assertEquals("should report the explorere in the second time placed position and no blockers.", 
+            "E:(0,1) B: ",
+            result.toString());
+    }
 }
