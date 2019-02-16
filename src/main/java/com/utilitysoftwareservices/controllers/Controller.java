@@ -12,10 +12,8 @@ public interface Controller {
     /**
      * reset the every to initial states and initialise the table to coordinate map
      * 
-     * @param initTableTopPoints initial table top units
-     * 
      */
-    void reset(Set<Point> initTableTopPoints);
+    void reset();
 
     /**
      * place a blocker on table top at the point
@@ -43,11 +41,11 @@ public interface Controller {
     List<Point> moveExplorer(Point from, Point to);
 
     /**
-     * report the locations of explorers on the table top
+     * report the location of explorer on the table top
      * 
-     * @return list of positions where explorers are on
+     * @return location where the explorer are on
      */
-    Set<Point> explorers();
+    Point explorer();
 
     /**
      * report the all locations of blockers on the table top

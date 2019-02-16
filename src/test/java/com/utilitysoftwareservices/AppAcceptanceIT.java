@@ -1,13 +1,12 @@
 package com.utilitysoftwareservices;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import com.utilitysoftwareservices.commands.Command;
 import com.utilitysoftwareservices.commands.CommandResult;
-import com.utilitysoftwareservices.commands.PlaceCommand;
-import com.utilitysoftwareservices.commands.PositionsResult;
-import com.utilitysoftwareservices.commands.ReportCommand;
+import com.utilitysoftwareservices.controllers.CartesianMapController;
+import com.utilitysoftwareservices.parsers.CommandParser;
 
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -15,6 +14,13 @@ import org.junit.Test;
  * 
  */
 public class AppAcceptanceIT {
+
+    private App app;
+
+    @Before
+    public void setup() {
+        app = new App(new CommandParser(), new CartesianMapController());
+    }
 
     /**
      * test the reported position is where the explorer is placed
@@ -29,11 +35,12 @@ public class AppAcceptanceIT {
      */
     @Test
     public void reportAfterExplorerPlaced() {
-        Command placeAtOrigin = new PlaceCommand();
-        Command reportCommand = new ReportCommand();
-        placeAtOrigin.execute();
-        CommandResult result = reportCommand.execute();
+        app.execute("PLACE 0,0");
+        CommandResult result = app.execute("REPORT");
 
-        assertTrue("Report command should return PositionResult.", result instanceof PositionsResult);
+
+        assertEquals("should report the explorere position correctly and no blockers.", 
+            "E:(0,0) B: ",
+            result.toString());
     }
 }
