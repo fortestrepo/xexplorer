@@ -3,23 +3,55 @@ package com.utilitysoftwareservices.parsers;
 import com.utilitysoftwareservices.Point;
 import com.utilitysoftwareservices.commands.BlockCommand;
 import com.utilitysoftwareservices.commands.Command;
-import com.utilitysoftwareservices.commands.ExploreCommand;
+import com.utilitysoftwareservices.commands.ExplorerCommand;
 import com.utilitysoftwareservices.commands.NoopCommand;
 import com.utilitysoftwareservices.commands.PlaceCommand;
 import com.utilitysoftwareservices.commands.ReportCommand;
 import com.utilitysoftwareservices.controllers.Controller;
 
 /**
- * CommandParser
+ * CommandParser parses text to command
+ *
  */
 public final class CommandParser {
+    /**
+     * Place command prefix
+     * 
+     */
     public final static String PLACE_COMMAND = "PLACE";
+    /**
+     * Block command prefix
+     * 
+     */
     public final static String BLOCK_COMMAND = "BLOCK";
+    /**
+     * Report command prefix
+     * 
+     */
     public final static String REPORT_COMMAND = "REPORT";
+    /**
+     * Explorer command prefix
+     * 
+     */
     public final static String EXPLORER_COMMAND = "EXPLORER";
 
     private Controller controller;
 
+    /**
+     * parse text to command
+     * 
+     * Valid commands:
+     * <ul>
+     *  <li>@{PlaceCommand}</li>
+     *  <li>@{BlockCommand}</li>
+     *  <li>@{ReportCommand}</li>
+     *  <li>@{ExploreCommand}</li>
+     * </ul>
+     * Any invalid texts are resolved to @{NoopCommand}.
+     * 
+     * @param commandLine command text
+     * @return according @{Command}
+     */
     public Command parse(String commandLine) {
         if (commandLine != null) {
             if (commandLine.startsWith(PLACE_COMMAND)) {
@@ -37,7 +69,7 @@ public final class CommandParser {
             } else if (commandLine.startsWith(EXPLORER_COMMAND)) {
                 Point position = parsePosition(positionPart(commandLine));
                 if (position != null) {
-                    return new ExploreCommand(position);
+                    return new ExplorerCommand(position);
                 }
             }
         }

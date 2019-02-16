@@ -21,5 +21,11 @@ public class BlockCommand implements Command {
         return new NoneResult();
     }
 
-    
+    /**
+     * Getter of position
+     * @return position point
+     */
+    public Point getPosition() {
+        return position;
+    }
 }

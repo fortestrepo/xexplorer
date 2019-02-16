@@ -22,4 +22,13 @@ public final class PlaceCommand implements Command {
         controller.placeExplorer(position);
         return new NoneResult();
     }
+    
+    /**
+     * Getter of position field
+     * 
+     * @return position
+     */
+    public Point getPosition() {
+        return position;
+    }
 }

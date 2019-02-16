@@ -5,10 +5,10 @@ import com.utilitysoftwareservices.Point;
 /**
  * ExploreCommand
  */
-public final class ExploreCommand implements Command {
+public final class ExplorerCommand implements Command {
     private final Point position;
     
-    public ExploreCommand(Point position) {
+    public ExplorerCommand(Point position) {
         this.position = position;
     }
     @Override
@@ -16,5 +16,12 @@ public final class ExploreCommand implements Command {
         return new PathResult();
     }
 
-    
+    /**
+     * Getter of position field
+     * 
+     * @return position
+     */
+    public Point getPosition() {
+        return position;
+    }
 }
