@@ -5,7 +5,8 @@ import java.util.Set;
 import com.utilitysoftwareservices.Point;
 
 /**
- * PositionsResult
+ * One type of CommandResult, which holds positions of explorer and blockers
+ * 
  */
 public final class PositionsResult extends CommandResult {
 
@@ -18,11 +19,21 @@ public final class PositionsResult extends CommandResult {
         this.blockers = blockers;
     }
 
+    /**
+     * Getter of explorer field
+     * 
+     * @return position of explorer
+     */
     public Point getExplorer() {
         return this.explorer;
     }
 
 
+    /**
+     * Getter of blockers field
+     * 
+     * @return positions of blockers
+     */
     public Set<Point> getBlockers() {
         return this.blockers;
     }
