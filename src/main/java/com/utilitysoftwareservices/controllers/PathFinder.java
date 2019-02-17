@@ -15,8 +15,9 @@ public interface PathFinder {
      * Find the path to the target position from the explorer's current position
      * 
      * @param tableTopWithStatus all units of the table top with statuses.
+     * @param source the source position.
      * @param target the destination position.
      * @return the path from explorer's current position to target position. Return empty list when there's way to reach the target.
      */
-    List<Point> find(Map<Point, UnitStatus> tableTopWithStatus, Point target);
+    List<Point> find(Map<Point, UnitStatus> tableTopWithStatus, Point source, Point target);
 }

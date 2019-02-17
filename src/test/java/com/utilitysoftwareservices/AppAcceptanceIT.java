@@ -100,4 +100,36 @@ public class AppAcceptanceIT {
             "E:(0,1) B: ",
             result.toString());
     }
+
+    /**
+     * test move the explorer and report after the move
+     * 
+     * Example d
+     * PLACE 0,0
+     * BLOCK 0,2
+     * EXPLORER 0,3
+     * 
+     * Expected output
+     * PATH: (0,0) (0,1) (1,1) (1,2) (1,3) (0,3)
+     * 
+     * REPORT
+     * Expected output
+     * E:(0,3) B: (0,2)
+     * 
+     */
+    @Test
+    public void moveExplorerToAnotherPosition() {
+        app.execute("PLACE 0,0");
+        app.execute("BLOCK 0,2");
+        CommandResult result = app.execute("EXPLORER 0,3");
+
+        assertEquals("should report correct path after the explorer has moved.",
+            "PATH: (0,0) (0,1) (1,1) (1,2) (1,3) (0,3)",
+            result.toString());
+
+        result = app.execute("REPORT");
+        assertEquals("should report correct the new position of exlorer and blockers correctly.",
+            "E:(0,3) B: (0,2)",
+            result.toString());
+    }
 }

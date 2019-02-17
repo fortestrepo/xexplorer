@@ -22,7 +22,7 @@ public final class PathResult extends CommandResult {
         if (getPath() == null ) {
             return "";
         }
-        return String.join(" ", getPath().stream().map(Point::toString).toArray(String[]::new));
+        return "PATH: " + String.join(" ", getPath().stream().map(Point::toString).toArray(String[]::new));
     }
 
 

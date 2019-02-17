@@ -37,6 +37,7 @@ public class CartesianMapController implements Controller {
 
     private Map<Point, UnitStatus> tableTop;
     private boolean explorerPlacedSuccess;
+    private PathFinder pathFinder = new ShortestPathFinder();
 
     /**
      * place a blocker on table top at the point
@@ -81,7 +82,16 @@ public class CartesianMapController implements Controller {
      */
     @Override
     public List<Point> moveExplorer(Point to) {
-        return null;
+        if (isExplorerPlacedSuccess() && UnitStatus.EMPTY.equals(getTableTop().get(to))) {
+            List<Point> path = pathFinder.find(getTableTop(), explorer(), to);
+            if (path != null) {
+                getTableTop().put(explorer(), UnitStatus.EMPTY);
+                getTableTop().put(to, UnitStatus.EXPLORER_ON);
+            }
+            return path;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -144,6 +154,22 @@ public class CartesianMapController implements Controller {
      */
     protected void setTableTop(Map<Point, UnitStatus> tableTop) {
         this.tableTop = tableTop;
+    }
+
+    /**
+     *  Getter of pathFinder field
+     * @return
+     */
+    protected PathFinder getPathFinder() {
+        return pathFinder;
+    }
+
+    /**
+     * @param tableTop the pathFinder to set
+     * 
+     */
+    protected void setPathFinder(PathFinder pathFinder) {
+        this.pathFinder = pathFinder;
     }
     
 }
