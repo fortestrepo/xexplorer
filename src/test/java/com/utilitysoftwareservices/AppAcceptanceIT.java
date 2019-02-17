@@ -122,10 +122,13 @@ public class AppAcceptanceIT {
         app.execute("PLACE 0,0");
         app.execute("BLOCK 0,2");
         CommandResult result = app.execute("EXPLORER 0,3");
+        // followings are two possible shortest pathes
+        String possiblePath1 = "PATH: (0,0) (0,1) (1,1) (1,2) (1,3) (0,3)";
+        String possiblePath2 = "PATH: (0,0) (1,0) (1,1) (1,2) (1,3) (0,3)";
 
-        assertEquals("should report correct path after the explorer has moved.",
-            "PATH: (0,0) (0,1) (1,1) (1,2) (1,3) (0,3)",
-            result.toString());
+        assertThat("should report correct path after the explorer has moved.",
+            result.toString(),
+            anyOf(is(possiblePath1), is(possiblePath2)));
 
         result = app.execute("REPORT");
         assertEquals("should report correct the new position of exlorer and blockers correctly.",
