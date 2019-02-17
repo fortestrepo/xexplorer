@@ -1,32 +1,43 @@
+Mars Explorer Simulator Implementation
+===================
+This implementation responds the requirement stated in [REQUIREMENT.md](./REQUIREMENT.md).
+
 
 
 # Build
 
-## install
+## Install
 ```
 mvn clean install
 ```
 
-## unit tests
+## Unit tests
 ```
 mvn clean test
 ```
 
-## integration tests
+## Integration tests
 ```
 mvn clean verify
 ```
 
-## java doc
+## Java doc
 ```
 mvn javadoc:javadoc
 ```
 
 # Run Application
 
+## Run Demo
 ```
 java -jar ./target/xexplorer-<<version-number>>.jar
 // e.g. java -jar ./target/xexplorer-1.0-SNAPSHOT.jar
+```
+
+## Run with specified command file
+```
+java -jar ./target/xexplorer-<<version-number>>.jar <<file-name>>
+// e.g. java -jar ./target/xexplorer-1.0-SNAPSHOT.jar c:\hello-bot.txt
 ```
 
 # API Document
@@ -48,7 +59,7 @@ There are two types of reports, one includes unit tests coverage, and which is g
 
 The other includes all (unit tests and integration tests), and which is generated during maven verify phase.
 
-## unit test coverage report
+## Unit test coverage report
 
 Report is only available after running unit tests successfully.
 
@@ -56,7 +67,7 @@ Report is only available after running unit tests successfully.
 ./target/site/jacoco-ut/index.html
 ```
 
-## all test coverage report
+## All test coverage report
 
 Report is only available after running interagation tests successfully. This report covers both unit tests and integration tests.
 

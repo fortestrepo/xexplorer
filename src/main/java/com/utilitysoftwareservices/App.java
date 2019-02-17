@@ -30,9 +30,9 @@ public class App {
      * 
      * Usage:
      * <ul>
-     * <li>run with file: java -jar xexplorer <command-file-name></li>
-     * <li>run demo: java -jar xexplorer</li>
-     * 
+     *  <li>run with file: java -jar xexplorer [command-file-name]</li>
+     *  <li>run demo: java -jar xexplorer</li>
+     * </ul>
      * 
      * @param args arguments from external command
      */
