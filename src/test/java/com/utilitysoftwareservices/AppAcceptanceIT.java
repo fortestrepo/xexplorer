@@ -1,6 +1,8 @@
 package com.utilitysoftwareservices;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
 
 import com.utilitysoftwareservices.commands.CommandResult;
 import com.utilitysoftwareservices.controllers.CartesianMapController;
@@ -63,11 +65,13 @@ public class AppAcceptanceIT {
         app.execute("BLOCK 0,1");
         app.execute("BLOCK 0,2");
         CommandResult result = app.execute("REPORT");
+        String possibleOutput1 = "E:(0,0) B: (0,1) (0,2)";
+        String possibleOutput2 = "E:(0,0) B: (0,2) (0,1)";
 
-
-        assertEquals("should report the explorere position and blocker positions correctly.", 
-            "E:(0,0) B: (0,1) (0,2)",
-            result.toString());
+        // the blocker positions are supported by Set, there's no guarantee of order.
+        assertThat("should report the explorere position and blocker positions correctly.", 
+            result.toString(),
+            anyOf(is(possibleOutput1), is(possibleOutput2)));
     }
 
     /**
