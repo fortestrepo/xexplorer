@@ -29,7 +29,7 @@ public final class PathResult extends CommandResult {
     /**
      * Getter of path field
      * 
-     * @return
+     * @return list position as a path
      */
     public List<Point> getPath() {
         return this.path;

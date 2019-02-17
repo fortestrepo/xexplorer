@@ -42,7 +42,7 @@ public class ShortestPathFinder implements PathFinder {
     }
 
     private void setupGraphForTableTop(Map<Point, UnitStatus> tableTopWithStatus) {
-
+        graph.getNodes().clear();
         // add all the nodes into graph
         tableTopWithStatus.keySet().stream().forEach(point -> {
             Node node = new Node(point);

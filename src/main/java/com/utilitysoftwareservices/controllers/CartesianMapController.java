@@ -162,14 +162,14 @@ public class CartesianMapController implements Controller {
 
     /**
      *  Getter of pathFinder field
-     * @return
+     * @return the pathFinder
      */
     protected PathFinder getPathFinder() {
         return pathFinder;
     }
 
     /**
-     * @param tableTop the pathFinder to set
+     * @param pathFinder the pathFinder to set
      * 
      */
     protected void setPathFinder(PathFinder pathFinder) {
