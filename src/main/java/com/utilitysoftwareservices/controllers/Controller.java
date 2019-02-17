@@ -28,11 +28,10 @@ public interface Controller {
     /**
      * move the explorer from one position to another
      * 
-     * @param from the original positon 
      * @param to the target position
      * @return the shortest path
      */
-    List<Point> moveExplorer(Point from, Point to);
+    List<Point> moveExplorer(Point to);
 
     /**
      * report the location of explorer on the table top

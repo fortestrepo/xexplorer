@@ -38,6 +38,12 @@ public class CartesianMapController implements Controller {
     private Map<Point, UnitStatus> tableTop;
     private boolean explorerPlacedSuccess;
 
+    /**
+     * place a blocker on table top at the point
+     * 
+     * @param position the point the blocker will be
+     * 
+     */
     @Override
     public void placeBlocker(Point position) {
         if (getTableTop().containsKey(position)) {
@@ -47,6 +53,12 @@ public class CartesianMapController implements Controller {
         }
     }
 
+    /**
+     * place a explorer on table to at the point
+     * 
+     * @param position the point the explorer will be
+     * 
+     */
     @Override
     public void placeExplorer(Point position) {
         reset();
@@ -56,11 +68,27 @@ public class CartesianMapController implements Controller {
         setExplorerPlacedSuccess(true);
     }
 
+    /**
+     * Move a the explorer to a new position, if
+     * 
+     *  <ul>
+     *      <li>the explorer has previous placed on the table top correctly;</li>
+     *      <li>there's a valid path to the new position.</li>
+     * </ul>
+     * 
+     * @param to the target position
+     * @return the shortest path, if move successfully; otherwise return null
+     */
     @Override
-    public List<Point> moveExplorer(Point from, Point to) {
+    public List<Point> moveExplorer(Point to) {
         return null;
     }
 
+    /**
+     * report the location of explorer on the table top
+     * 
+     * @return location where the explorer are on
+     */
     @Override
     public Point explorer() {
         Optional<Point> explorerPosition = tableTop.entrySet().stream()
@@ -68,12 +96,20 @@ public class CartesianMapController implements Controller {
         return explorerPosition.isPresent() ? explorerPosition.get() : null;
     }
 
+    /**
+     * report the all locations of blockers on the table top
+     * 
+     * @return list of positions where blockers are on
+     */
     @Override
     public Set<Point> blockers() {
         return tableTop.entrySet().stream().filter(kv -> UnitStatus.BLOCKED.equals(kv.getValue())).map(Entry::getKey).collect(Collectors.toSet());
     }
 
-    
+    /**
+     * reset every unit on the table top to empty status
+     * 
+     */
     void reset() {
         setExplorerPlacedSuccess(false);
         Map<Point, UnitStatus> emptyTableTop = FIVE_SEQUARE_TABLE_TOP.stream().collect(Collectors.toMap(Function.identity(), p -> UnitStatus.EMPTY));

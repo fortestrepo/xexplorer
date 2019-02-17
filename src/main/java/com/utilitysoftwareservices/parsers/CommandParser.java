@@ -69,7 +69,7 @@ public final class CommandParser {
             } else if (commandLine.startsWith(EXPLORER_COMMAND)) {
                 Point position = parsePosition(positionPart(commandLine));
                 if (position != null) {
-                    return new ExplorerCommand(position);
+                    return new ExplorerCommand(getController(), position);
                 }
             }
         }
