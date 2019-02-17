@@ -21,9 +21,11 @@ import com.utilitysoftwareservices.Point;
  */
 public class ShortestPathFinder implements PathFinder {
     final static int EDGE_WEIGHT = 1;
+    Graph graph = new Graph();
+
     @Override
     public List<Point> find(Map<Point, UnitStatus> tableTopWithStatus, Point source, Point target) {
-        Graph graph = createGraphForTableTop(tableTopWithStatus);
+        setupGraphForTableTop(tableTopWithStatus);
         Optional<Node> sourceNode = graph.find(source);
         Optional<Node> targetNode = graph.find(target);
         if (sourceNode.isPresent() && targetNode.isPresent()) {
@@ -39,8 +41,7 @@ public class ShortestPathFinder implements PathFinder {
         }
     }
 
-    private Graph createGraphForTableTop(Map<Point, UnitStatus> tableTopWithStatus) {
-        final Graph graph = new Graph();
+    private void setupGraphForTableTop(Map<Point, UnitStatus> tableTopWithStatus) {
 
         // add all the nodes into graph
         tableTopWithStatus.keySet().stream().forEach(point -> {
@@ -69,8 +70,6 @@ public class ShortestPathFinder implements PathFinder {
                 n.addDestination(graph.find(bottum).get(), EDGE_WEIGHT);
             }
         });
-
-        return graph;
     }
 
     /**
