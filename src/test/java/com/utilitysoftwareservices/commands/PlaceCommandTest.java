@@ -23,7 +23,6 @@ public class PlaceCommandTest extends CommandTestBase {
         CommandResult result = command.execute();
 
         assertEquals("PlaceCommand returns NoneResult.", NoneResult.class, result.getClass());
-        verify(controller).reset();
         verify(controller).placeExplorer(position);
     }
 

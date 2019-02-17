@@ -10,12 +10,6 @@ import com.utilitysoftwareservices.Point;
  */
 public interface Controller {
     /**
-     * reset the every to initial states and initialise the table to coordinate map
-     * 
-     */
-    void reset();
-
-    /**
      * place a blocker on table top at the point
      * 
      * @param position the point the blocker will be

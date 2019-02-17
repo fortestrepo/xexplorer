@@ -33,7 +33,6 @@ public final class PlaceCommand implements Command {
 
     @Override
     public CommandResult execute() {
-        controller.reset();
         controller.placeExplorer(position);
         return new NoneResult();
     }
